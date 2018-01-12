@@ -34,6 +34,8 @@ $(function(){
       {
          //get any fig.width or fig.height details
          //that's all for now for this workaround!
+         //will need to address the other options for code chunk
+         //with respect to iNZightPlots..... future
          var figWidth = 800; //8
          var figHeight = 500; //5
          var chunkOptions = chunkHead.split("```{r ");
@@ -138,7 +140,6 @@ iframe {
 library(iNZightPlots)
 riodata <- read.csv("https://stat.auckland.ac.nz/~martin/rio.csv")
 iNZightPlot(Age, data=riodata, plottype="dot")
-iNZightPlot(Age, Sex, data=riodata, plottype="dot")
 ```</div>
 
 <iframe src="about:blank"></iframe>
