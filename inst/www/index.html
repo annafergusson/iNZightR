@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Exploring data with R using iNZight</title>
+<title>OpenCPU Markdown App</title>
     
 <script src="underscore-min.js"></script>    
 <script src="jquery-1.10.2.min.js"></script>
@@ -11,6 +11,7 @@
 <script>
 $(function(){
   var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/r");
   editor.setFontSize("14px");
 
@@ -92,12 +93,11 @@ $(function(){
     });
   }
 
-  //auto run after 2 seconds of no activity
-  var update = _.debounce(domarkdown, 2000);
-  
-  //register event
-  editor.on("change", update);
-  
+ //update when Run code button clicked
+$("#runCode").click(function() {
+  domarkdown();
+});  
+ 
   //init on start
   domarkdown();  
 });
@@ -127,7 +127,8 @@ iframe {
 </style>
 </head>
 <body>
-
+<input type="button" value="Run code" id="runCode">
+<div id="rmdoc">
 <div id="editor">
 Exploring data with iNZightPlots
 ================================
@@ -141,6 +142,7 @@ iNZightPlot(Age, Sex, data=riodata, plottype="dot")
 </div>
 
 <iframe src="about:blank"></iframe>
+</div>
 
 </body>
 </html>
