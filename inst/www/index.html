@@ -107,7 +107,7 @@ $("#runCode").click(function() {
  
 #editor { 
   position: absolute;
-  top: 20px;
+  top: 50px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -115,7 +115,7 @@ $("#runCode").click(function() {
 
 iframe { 
   position: absolute;
-  top: 20px;
+  top: 50px;
   right: 0px;
   width: 604px;
   height: 100%;
@@ -131,16 +131,15 @@ iframe {
 <input type="button" value="Run code" id="runCode">
 </div>
 <div id="rmdoc">
-<div id="editor">
-Exploring data with iNZightPlots
+<div id="editor">Exploring data with iNZightPlots
 ================================
 
 ```{r}
 library(iNZightPlots)
 riodata <- read.csv("https://stat.auckland.ac.nz/~martin/rio.csv")
 iNZightPlot(Age, data=riodata, plottype="dot")
-```
-</div>
+iNZightPlot(Age, Sex, data=riodata, plottype="dot")
+```</div>
 
 <iframe src="about:blank"></iframe>
 </div>
