@@ -13,6 +13,7 @@ $(function(){
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/r");
+  editor.getSession().setUseWrapMode(true);
   editor.setFontSize("14px");
 
   //This app requires OpenCPU 1.0.1 or higher!
@@ -111,7 +112,7 @@ $("#runCode").click(function() {
   position: absolute;
   top: 50px;
   left: 0px;
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 
