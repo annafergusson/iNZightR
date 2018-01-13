@@ -10,7 +10,7 @@ $(function(){
     var textMod = editor.getSession().getValue();
     var hack = textMod.split("\n");
     var newText = [];
-    //set defaults for knitr
+    //set defaults for knitr-
     newText.push("```{r include = FALSE}");
     newText.push("knitr::opts_chunk$set(tidy = TRUE)");
     newText.push("```");
