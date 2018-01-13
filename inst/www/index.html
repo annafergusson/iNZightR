@@ -9,11 +9,21 @@
 
 <script>
 $(function(){
+
+  var hash = location.hash.substr(1);
+  var rmd = decodeURI(hash).split(",").join("\n");
+  if(rmd == "")
+  {
+	rmd = "Where R you R Markdown?";
+  }
+  $("#editor").html(rmd);
+  
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setMode("ace/mode/r");
   editor.getSession().setUseWrapMode(true);
   editor.setFontSize("14px");
+  editor.setShowPrintMargin(false);
   
   function domarkdown(e){
     var textMod = editor.getSession().getValue();
@@ -92,7 +102,8 @@ $(function(){
     var req = ocpu.call("rmdtext", {
       text : textMod
     }, function(session){
-      $("iframe").attr('src', session.getFileURL("output.html"));     
+      $("iframe").attr('src', session.getFileURL("output.html")); 
+		$("#render").show();
     }).fail(function(text){
       alert("Error: " + req.responseText);
     });
@@ -101,7 +112,23 @@ $(function(){
   
  //update when Run code button clicked
 $("#runCode").click(function() {
-  domarkdown();
+ if($("#runCode").val() == "Edit R Markdown")
+	  {
+		$("#runCode").val("Knit R Markdown");
+		$("#editor").show();
+		$("#render").hide();
+		$("#dummy").hide();
+		$("#loader").hide();
+	  }
+	  else
+	  {
+		domarkdown();
+		$("#runCode").val("Edit R Markdown");
+		$("#editor").hide();
+		$("#dummy").show();
+		$("#loader").show();
+		editor.resize();
+	  }
 });  
  
   //init on start
@@ -113,42 +140,76 @@ $("#runCode").click(function() {
  
 #editor { 
   position: absolute;
-  top: 50px;
+  top: 0px;
   left: 0px;
-  width: 50%;
+  width: 100%;
   height: 100%;
+  z-index: 0;
 }
-iframe { 
+
+#dummy {
   position: absolute;
-  top: 50px;
-  right: 0px;
-  width: 604px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
   height: 100%;
+  z-index: 1;
+  background-color:#ffffff;
+}
+
+#render {
+ position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
   border: 0;
-  margin: 0;
-  z-index: 999999;
+  margin: 2;
+}
+
+#runCode:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#runCode {
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  z-index: 15;
+  right: 5%;
+  background: #666666;
+  padding: 5px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #A6C0C5; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -120px 0 0 -120px;
+	z-index:4;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 </style>
 </head>
 <body>
-<div id="top">
-<input type="button" value="Knit R Markdown" id="runCode">
-</div>
-<div id="rmdoc">
-<div id="editor">Exploring data with iNZightPlots
-================================
-
-```{r}
-library(iNZightPlots)
-data(riodata)
-```
-
-```{r}
-iNZightPlot(Age, data=riodata, plottype="dot")
-```</div>
-
-<iframe src="about:blank"></iframe>
-</div>
-
+<input type="button" value="Edit R Markdown" id="runCode">
+<div id="editor"></div>
+<div id="dummy"></div>
+<iframe id="render" src="about:blank"></iframe>
+<div class="loader" id="loader"></div>
 </body>
 </html>
