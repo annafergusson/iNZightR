@@ -15,13 +15,17 @@ $(function(){
   editor.getSession().setMode("ace/mode/r");
   editor.getSession().setUseWrapMode(true);
   editor.setFontSize("14px");
-
   //This app requires OpenCPU 1.0.1 or higher!
   
   function domarkdown(e){
     var textMod = editor.getSession().getValue();
     var hack = textMod.split("\n");
     var newText = [];
+    //set defaults for knitr
+    newText.push("```{r include = FALSE}");
+    newText.push("knitr::opts_chunk$set(tidy = TRUE)");
+    newText.push("```");
+    
     var chunkHead = "";
     var skip = -1;
     for(var i=0; i<hack.length; i++)
@@ -95,7 +99,6 @@ $(function(){
       alert("Error: " + req.responseText);
     });
   }
-
  //update when Run code button clicked
 $("#runCode").click(function() {
   domarkdown();
@@ -115,7 +118,6 @@ $("#runCode").click(function() {
   width: 50%;
   height: 100%;
 }
-
 iframe { 
   position: absolute;
   top: 50px;
@@ -126,7 +128,6 @@ iframe {
   margin: 0;
   z-index: 999999;
 }
-
 </style>
 </head>
 <body>
