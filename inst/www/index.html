@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <title>iNZight rmarkdown</title>
-    
 <script src="underscore-min.js"></script>    
 <script src="jquery-1.10.2.min.js"></script>
 <script src="opencpu-0.4.js"></script>
@@ -15,7 +14,6 @@ $(function(){
   editor.getSession().setMode("ace/mode/r");
   editor.getSession().setUseWrapMode(true);
   editor.setFontSize("14px");
-  //This app requires OpenCPU 1.0.1 or higher!
   
   function domarkdown(e){
     var textMod = editor.getSession().getValue();
@@ -143,6 +141,9 @@ iframe {
 ```{r}
 library(iNZightPlots)
 data(riodata)
+```
+
+```{r}
 iNZightPlot(Age, data=riodata, plottype="dot")
 ```</div>
 
