@@ -91,7 +91,6 @@ $(function(){
     }
     textMod = newText.join("\n");
     
-    /*
     var req = ocpu.call("rmdtext", {
       text : textMod
     }, function(session){
@@ -99,21 +98,6 @@ $(function(){
     }).fail(function(text){
       alert("Error: " + req.responseText);
     });
-    */
-    
-    //call R function
-    var req = ocpu.rpc("rmdtext",{
-    text : textMod
-    }, function(output){
-   //$ ("iframe").attr('src', session.getFileURL("output.html")); 
-   document.getElementById("rendered").innerHTML = output;
-});
-
-//optional
-req.fail(function(){
-    alert("R returned an error: " + req.responseText);
-});
-    
     
   }
   
@@ -162,7 +146,7 @@ data(riodata)
 iNZightPlot(Age, data=riodata, plottype="dot")
 ```</div>
 
-<iframe id="rendered" src="about:blank"></iframe>
+<iframe src="about:blank"></iframe>
 </div>
 
 </body>
