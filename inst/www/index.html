@@ -103,7 +103,9 @@ $(function(){
       text : textMod
     }, function(session){
       $("iframe").attr('src', session.getFileURL("output.html")); 
-		$("#render").show();
+	  $('#iframe').on("load", function() {
+			$("#render").show();
+		});
     }).fail(function(text){
       alert("Error: " + req.responseText);
     });
