@@ -11,3 +11,4 @@ Depends:
  knitr,
  iNZightPlots
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
+LazyData: true
