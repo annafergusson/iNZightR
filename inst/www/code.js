@@ -1,3 +1,7 @@
+//ocpu.seturl("//cloud.opencpu.org/ocpu/apps/annafergusson/iNZightR/R")
+//need line above for CORS
+oldRmd = "";
+
 $(function(){  
   var editor = ace.edit("editor");
   editor.setTheme("ace/theme/monokai");
@@ -10,7 +14,7 @@ $(function(){
     var textMod = editor.getSession().getValue();
     var hack = textMod.split("\n");
     var newText = [];
-    //set defaults for knitr-
+    //set defaults for knitr
     newText.push("```{r include = FALSE}");
     newText.push("knitr::opts_chunk$set(tidy = TRUE)");
     newText.push("```");
@@ -61,36 +65,35 @@ $(function(){
          newText.push("dev.off()");
          newText.push("```");
          newText.push("![](" + ts + ".png)");
-         if(hack[i + 1].substring(0,3) !== "```")
-          {
-            newText.push(chunkHead);
-          }
-          else
-          {
-            skip = i + 1;
-          }
+		 newText.push(chunkHead);
       }
       else
       {
-        if(i !== skip)
-        {
           newText.push(hack[i]); 
-        }
       }
     }
     textMod = newText.join("\n");
-    
-    var req = ocpu.call("rmdtext", {
-      text : textMod
-    }, function(session){
-      $("iframe").attr('src', session.getFileURL("output.html")); 
-	  $("iframe").on("load", function() {
+	
+		if(oldRmd !== editor.getSession().getValue())
+		{
+			oldRmd = editor.getSession().getValue();
+			var req = ocpu.call("rmdtext", {
+			  text : textMod
+			}, function(session){
+			 var interimURL = session.getFileURL("output.html");
+				var parts = interimURL.split("cloud.opencpu.org/ocpu/tmp/");
+			  $("iframe").attr('src', "//cloud.opencpu.org/ocpu/tmp/" + parts[parts.length - 1]);  
+			  $("iframe").on("load", function() {
+					$("#render").show();
+				});
+			}).fail(function(text){
+			  alert("Error: " + req.responseText);
+			});
+		}
+		else
+		{
 			$("#render").show();
-		});
-    }).fail(function(text){
-      alert("Error: " + req.responseText);
-    });
-    
+		}
   }
   
  //update when Run code button clicked
@@ -102,6 +105,8 @@ $("#runCode").click(function() {
 		$("#render").hide();
 		$("#dummy").hide();
 		$("#loader").hide();
+		editor.focus(); 
+		editor.gotoLine(1); 
 	  }
 	  else
 	  {
