@@ -81,8 +81,7 @@ $(function(){
 			  text : textMod
 			}, function(session){
 			 var interimURL = session.getFileURL("output.html");
-				var parts = interimURL.split("cloud.opencpu.org/ocpu/tmp/");
-			  $("iframe").attr('src', "//cloud.opencpu.org/ocpu/tmp/" + parts[parts.length - 1]);  
+			  $("iframe").attr('src', interimURL);  
 			  $("iframe").on("load", function() {
 					$("#render").show();
 				});
