@@ -18,4 +18,3 @@ autoplot <- function(x, y = NULL, g1 = NULL, g1.level = NULL, g2 = NULL,
   xlim = NULL, ylim = NULL, zoombars = NULL, hide.legend = FALSE, df,
   env = parent.frame())
   }
-
