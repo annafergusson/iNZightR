@@ -8,6 +8,7 @@ Maintainer: Anna Fergusson <a.fergusson@auckland.ac.nz>
 Description: A package that provides an interactive rmarkdown for exploring iNZight plots through an openCPU app.
 License: CC0
 Depends:
+ R,
  knitr,
  iNZightPlots
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
