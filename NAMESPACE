@@ -1,3 +1,4 @@
 export(rmdtext)
 export(autoplot)
 export(snippet)
+import(identity)
