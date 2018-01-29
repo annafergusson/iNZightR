@@ -4,6 +4,6 @@
 #' @export
 rmdtext <- function(text){
   writeLines(text, con="input.Rmd");
-  knitr::knit2html("input.Rmd", output="output.html");
+  knit2html("input.Rmd", output="output.html");
   invisible();
 }
