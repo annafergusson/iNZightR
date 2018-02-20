@@ -10,6 +10,8 @@ License: CC0
 Depends:
  R,
  knitr,
- iNZightPlots
+ iNZightPlots,
+ dplyr,
+ ggplot2
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
