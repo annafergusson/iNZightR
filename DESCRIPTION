@@ -12,6 +12,9 @@ Depends:
  knitr,
  iNZightPlots,
  dplyr,
- ggplot2
+ ggplot2,
+ lubridate,
+ ggthemes,
+ tidyr
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
