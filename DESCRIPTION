@@ -15,6 +15,7 @@ Depends:
  ggplot2,
  lubridate,
  ggthemes,
- tidyr
+ tidyr,
+ stringr
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
