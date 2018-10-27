@@ -16,6 +16,11 @@ Depends:
  lubridate,
  ggthemes,
  tidyr,
- stringr
+ stringr,
+ purrr,
+ infer,
+ nullabor,
+ readr,
+ tidyr
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
