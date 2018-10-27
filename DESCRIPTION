@@ -11,16 +11,8 @@ Depends:
  R,
  knitr,
  iNZightPlots,
- dplyr,
- ggplot2,
- lubridate,
  ggthemes,
- tidyr,
- stringr,
- purrr,
  infer,
- nullabor,
- readr,
- tidyr
+ nullabor
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
