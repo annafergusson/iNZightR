@@ -11,8 +11,6 @@ Depends:
  R,
  knitr,
  iNZightPlots,
- infer,
- nullabor,
- DT
+ infer
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
