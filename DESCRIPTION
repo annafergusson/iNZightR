@@ -1,7 +1,7 @@
 Package: iNZightR
 Type: Package
 Title: Interactive rmarkdown app for exploring iNZight plots
-Version: 1.1
+Version: 1.2
 Date: 2018-12-01
 Author: Anna Fergusson
 Maintainer: Anna Fergusson <a.fergusson@auckland.ac.nz>
