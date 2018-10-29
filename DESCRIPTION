@@ -11,6 +11,7 @@ Depends:
  R,
  knitr,
  iNZightPlots,
- nullabor
+ nullabor,
+ magick
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
