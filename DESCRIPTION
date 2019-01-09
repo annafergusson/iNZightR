@@ -12,6 +12,7 @@ Depends:
  knitr,
  iNZightPlots,
  nullabor,
- magick
+ magick,
+ ggthemes
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
