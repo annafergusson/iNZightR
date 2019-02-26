@@ -13,6 +13,7 @@ Depends:
  iNZightPlots,
  nullabor,
  magick,
- ggthemes
+ ggthemes,
+ ggplot2
 Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
 LazyData: true
