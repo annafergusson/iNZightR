@@ -13,5 +13,5 @@ Depends:
  iNZightPlots,
  ggthemes, 
  rmarkdown
-Additional_repositories: http://r.docker.stat.auckland.ac.nz/R
+Additional_repositories: https://r.docker.stat.auckland.ac.nz/
 LazyData: true
