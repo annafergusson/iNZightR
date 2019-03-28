@@ -11,6 +11,7 @@ Depends:
  R (>= 2.10),
  knitr,
  iNZightPlots,
- ggthemes
+ ggthemes,
+ magick
 Additional_repositories: https://r.docker.stat.auckland.ac.nz/
 LazyData: true
