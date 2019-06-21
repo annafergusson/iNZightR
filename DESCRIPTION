@@ -15,6 +15,7 @@ Depends:
  magick,
  rvest,
  tidytext,
- jsonlite
+ jsonlite,
+ stringr
 Additional_repositories: https://r.docker.stat.auckland.ac.nz/
 LazyData: true
