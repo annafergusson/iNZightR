@@ -60,5 +60,5 @@ chart_info <- tibble(calendar_date,
                      track_status = track_status[2:41],
                      track_label)
 
-toJSON(chart_info)
+return(toJSON(chart_info))
 }
