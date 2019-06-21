@@ -1,3 +1,5 @@
+#' @top40
+top40 <- function(){
 url <- "https://nztop40.co.nz/chart/singles"
 page <- read_html(url)
 
@@ -59,3 +61,4 @@ chart_info <- tibble(calendar_date,
                      track_label)
 
 toJSON(chart_info)
+}
