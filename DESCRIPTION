@@ -16,6 +16,7 @@ Depends:
  rvest,
  tidytext,
  jsonlite,
- stringr
+ stringr,
+ dplyr
 Additional_repositories: https://r.docker.stat.auckland.ac.nz/
 LazyData: true
