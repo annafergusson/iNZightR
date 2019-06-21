@@ -51,14 +51,16 @@ track_label <- page %>%
   str_squish() %>%
   head(40)
 
-chart_info <- tibble(calendar_date, 
+chart_info <- data.frame(calendar_date, 
                      this_week, 
                      last_week = last_week[2:41], 
                      num_weeks = num_weeks[2:41],
                      track_title,
                      track_artist,
                      track_status = track_status[2:41],
-                     track_label)
+                     track_label,
+                        stringsAsFactors = FALSE)
 
-return(toJSON(chart_info))
+toJSON(chart_info)
+  invisible();
 }
