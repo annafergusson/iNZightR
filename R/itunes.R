@@ -8,10 +8,9 @@ links <- page %>%
   html_nodes("a") %>%
   html_attr('href')
 
-tracks <- tibble(links) %>%
+tracks <- data.frame(links = links, stringsAsFactors = FALSE) %>%
   filter(str_detect(links, "i=")) %>%
   mutate(appleid = str_sub(links, -10))
-
 
 track_info <- map_df(1 : 40, function(i){
   res <- fromJSON(paste0("https://itunes.apple.com/lookup?id=",tracks$appleid[i]), flatten = TRUE)$results
@@ -23,5 +22,4 @@ track_info <- map_df(1 : 40, function(i){
 
 toJSON(track_info)
   invisible();
-  
 }
