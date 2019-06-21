@@ -14,6 +14,7 @@ Depends:
  ggthemes,
  magick,
  rvest,
- tidytext
+ tidytext,
+ jsonlite
 Additional_repositories: https://r.docker.stat.auckland.ac.nz/
 LazyData: true
