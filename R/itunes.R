@@ -21,5 +21,7 @@ track_info <- map_df(1 : 40, function(i){
   }
 })
 
-return(toJSON(track_info))
+toJSON(track_info)
+  invisible();
+  
 }
