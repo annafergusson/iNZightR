@@ -1,2 +1,4 @@
 export(rmdtext)
 export(snippet)
+export(itunes)
+export(top40)
