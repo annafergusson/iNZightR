@@ -1,3 +1,5 @@
+#' @itunes
+itunes <- function(){
 url <- "https://music.apple.com/nz/playlist/official-nz-top40/pl.u-GgA5klRUZezpr9M"
 page <- read_html(url)
 
@@ -20,3 +22,4 @@ track_info <- map_df(1 : 40, function(i){
 })
 
 toJSON(track_info)
+}
